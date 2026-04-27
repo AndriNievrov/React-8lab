@@ -1,9 +1,31 @@
+import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import BookCard from "./components/BookCard";
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [time, setTime] = useState(10);
+
+  // Loading (2 секунди)
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+  }, []);
+
+  // Таймер банера
+  useEffect(() => {
+    if (time > 0) {
+      const timer = setInterval(() => {
+        setTime((prev) => prev - 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [time]);
+
   const books = [
     {
       title: "Кобзар",
@@ -25,20 +47,26 @@ function App() {
     }
   ];
 
+  if (isLoading) {
+    return <h2 className="loading">Завантаження...</h2>;
+  }
+
   return (
     <>
       <Header />
+
+      {/* Банер */}
+      {time > 0 && (
+        <div className="banner">
+          🔥 Акція! Залишилось: {time} сек
+        </div>
+      )}
+
       <Main />
 
       <div className="book-list">
         {books.map((book, index) => (
-          <BookCard
-            key={index}
-            title={book.title}
-            author={book.author}
-            price={book.price}
-            image={book.image}
-          />
+          <BookCard key={index} {...book} />
         ))}
       </div>
 

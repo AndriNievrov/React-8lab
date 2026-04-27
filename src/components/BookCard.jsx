@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function BookCard({ title, author, price, image }) {
   const [count, setCount] = useState(0);
+
+  // Завантаження з LocalStorage
+  useEffect(() => {
+    const saved = localStorage.getItem(title);
+    if (saved) {
+      setCount(parseInt(saved));
+    }
+  }, [title]);
+
+  // Збереження в LocalStorage
+  useEffect(() => {
+    localStorage.setItem(title, count);
+  }, [count, title]);
 
   return (
     <div className="card">

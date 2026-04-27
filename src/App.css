@@ -3,6 +3,18 @@ body {
   text-align: center;
 }
 
+.loading {
+  font-size: 28px;
+  margin-top: 50px;
+}
+
+.banner {
+  background: orange;
+  padding: 10px;
+  font-weight: bold;
+  margin: 10px;
+}
+
 .book-list {
   display: flex;
   gap: 20px;
