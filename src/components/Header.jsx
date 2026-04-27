@@ -1,16 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Header() {
   return (
-    <header className="header">
-      <h1>Мій React сайт</h1>
-
-      <nav>
-        <ul className="nav">
-          <li>Головна</li>
-          <li>Каталог</li>
-          <li>Про нас</li>
-        </ul>
-      </nav>
-    </header>
+    <nav>
+      <Link to="/">Головна</Link> |{" "}
+      <Link to="/catalog">Каталог</Link>
+    </nav>
   );
 }
 
