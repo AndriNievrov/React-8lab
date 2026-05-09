@@ -73,3 +73,15 @@ button {
   font-size: 14px;
   text-align: left;
 }
+.book-item {
+  border: 1px solid #ccc;
+  margin: 10px auto;
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px;
+  background: white;
+}
+
+button {
+  margin: 5px;
+}
