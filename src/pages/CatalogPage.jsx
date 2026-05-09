@@ -8,11 +8,11 @@ const books = [
 
 function CatalogPage() {
   return (
-    <div>
+    <div className="page">
       <h2>📚 Каталог книг</h2>
 
       {books.map((book) => (
-        <div key={book.id}>
+        <div key={book.id} className="book-item">
           <Link to={`/book/${book.id}`}>
             {book.title}
           </Link>

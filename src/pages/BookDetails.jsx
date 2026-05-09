@@ -9,12 +9,15 @@ const books = [
 function BookDetails() {
   const { id } = useParams();
 
-  const book = books.find(b => b.id === parseInt(id));
+  const book = books.find((b) => b.id === parseInt(id));
 
   return (
-    <div>
+    <div className="page">
       <h2>📖 Деталі книги</h2>
-      <h3>{book ? book.title : "Книга не знайдена"}</h3>
+
+      <h3>
+        {book ? book.title : "Книга не знайдена"}
+      </h3>
     </div>
   );
 }

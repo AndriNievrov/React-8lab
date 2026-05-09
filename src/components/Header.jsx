@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <nav>
-      <Link to="/">Головна</Link> |{" "}
-      <Link to="/catalog">Каталог</Link>
-    </nav>
+    <header className="header">
+      <h1>📚 Book Store</h1>
+
+      <nav>
+        <Link to="/">Головна</Link>
+        <Link to="/catalog">Каталог</Link>
+        <Link to="/contacts">Контакти</Link>
+      </nav>
+    </header>
   );
 }
 
